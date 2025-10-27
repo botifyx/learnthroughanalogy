@@ -87,10 +87,10 @@ export const ANALOGY_DATA: Omit<Analogy, 'category'>[] = [
   },
   {
     id: 13,
-    title: 'Service Mesh',
-    concept: 'A dedicated infrastructure layer for handling service-to-service communication in a microservices architecture.',
-    analogy: 'An office building’s central infrastructure (security, mail, intercom). It handles communication and security for all offices (microservices) efficiently and uniformly.',
-    url: 'https://medium.com/@ramdinesh/what-is-a-service-mesh-an-office-building-analogy-a83151325d7b'
+    title: 'Generative AI',
+    concept: 'Generative AI is an advanced technology that uses machine learning algorithms to create new content, such as text, images, or music, by analyzing vast amounts of data.',
+    analogy: 'Imagine Generative AI as a skilled chef in a large, well-stocked kitchen.',
+    url: 'https://medium.com/@ramdinesh/generative-ai-part-1-f20ebb94293e'
   },
   {
     id: 14,
