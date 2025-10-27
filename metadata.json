@@ -1,0 +1,8 @@
+{
+  "name": "Learn Through Analogy",
+  "description": "A web application that helps users learn complex concepts through simple analogies, powered by a suite of advanced Gemini AI features including real-time conversation and community discussions.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
