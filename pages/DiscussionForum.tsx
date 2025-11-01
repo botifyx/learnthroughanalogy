@@ -47,14 +47,14 @@ export default function DiscussionForum() {
     };
 
     return (
-        <div className="flex h-[calc(100vh-10rem)] bg-white dark:bg-slate-800/50 rounded-lg shadow-xl overflow-hidden ring-1 ring-slate-200 dark:ring-slate-700">
-            <div className="w-1/3 bg-slate-100 dark:bg-slate-900/50 p-4 overflow-y-auto">
-                <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-white">Topics</h2>
+        <div className="flex h-[calc(100vh-10rem)] bg-slate-800 rounded-lg shadow-xl overflow-hidden ring-1 ring-slate-700">
+            <div className="w-1/3 bg-slate-900 p-4 overflow-y-auto">
+                <h2 className="text-xl font-bold mb-4 text-slate-100">Topics</h2>
                 <ul>
                     {topics.map(topic => (
                         <li key={topic.id} 
                             onClick={() => setSelectedTopic(topic)}
-                            className={`p-3 rounded-md cursor-pointer mb-2 transition-colors ${selectedTopic?.id === topic.id ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white' : 'hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
+                            className={`p-3 rounded-md cursor-pointer mb-2 transition-colors ${selectedTopic?.id === topic.id ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white' : 'hover:bg-slate-700'}`}>
                             {topic.title}
                         </li>
                     ))}
@@ -64,32 +64,32 @@ export default function DiscussionForum() {
                 {selectedTopic ? (
                     <>
                         <div className="flex-1 p-6 space-y-4 overflow-y-auto">
-                            <h3 className="text-2xl font-bold border-b border-slate-200 dark:border-slate-700 pb-2 text-violet-600 dark:text-violet-400">{selectedTopic.title}</h3>
+                            <h3 className="text-2xl font-bold border-b border-slate-700 pb-2 text-violet-400">{selectedTopic.title}</h3>
                             {selectedTopic.posts.map(post => (
-                                <div key={post.id} className="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg">
+                                <div key={post.id} className="bg-slate-700 p-4 rounded-lg">
                                     <div className="flex justify-between items-center mb-2">
-                                        <p className="font-bold text-cyan-600 dark:text-cyan-400">{post.author}</p>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400">{post.timestamp}</p>
+                                        <p className="font-bold text-cyan-600">{post.author}</p>
+                                        <p className="text-xs text-slate-400">{post.timestamp}</p>
                                     </div>
                                     <div 
-                                        className="text-slate-700 dark:text-slate-300 prose prose-sm max-w-none dark:prose-invert" 
+                                        className="text-slate-300 prose prose-sm max-w-none prose-invert" 
                                         dangerouslySetInnerHTML={createMarkup(post.content)}
                                     />
                                 </div>
                             ))}
                         </div>
-                        <div className="p-4 bg-slate-100 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-700">
+                        <div className="p-4 bg-slate-900 border-t border-slate-700">
                             <form onSubmit={handlePostSubmit}>
                                 <textarea
                                     value={newPostContent}
                                     onChange={e => setNewPostContent(e.target.value)}
                                     placeholder="Share your thoughts..."
-                                    className="w-full p-3 bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:outline-none text-slate-800 dark:text-white"
+                                    className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:outline-none text-slate-200"
                                     rows={3}
                                 />
                                 <div className="flex justify-between items-center mt-2">
-                                     <p className="text-xs text-slate-400 dark:text-slate-500">Markdown is supported.</p>
-                                    <button type="submit" className="px-6 py-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold rounded-lg shadow-md hover:opacity-90 disabled:bg-slate-400 dark:disabled:bg-slate-600 disabled:opacity-100 disabled:cursor-not-allowed transition-opacity text-sm" disabled={!newPostContent.trim()}>
+                                     <p className="text-xs text-slate-500">Markdown is supported.</p>
+                                    <button type="submit" className="px-6 py-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold rounded-lg shadow-md hover:opacity-90 disabled:bg-slate-400 disabled:opacity-100 disabled:cursor-not-allowed transition-opacity text-sm" disabled={!newPostContent.trim()}>
                                         Post
                                     </button>
                                 </div>
@@ -98,7 +98,7 @@ export default function DiscussionForum() {
                     </>
                 ) : (
                     <div className="flex items-center justify-center h-full">
-                        <p className="text-slate-400 dark:text-slate-500">Select a topic to view the discussion.</p>
+                        <p className="text-slate-500">Select a topic to view the discussion.</p>
                     </div>
                 )}
             </div>

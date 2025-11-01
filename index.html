@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn Through Analogy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
+    <style>
+      html {
+        color-scheme: dark;
       }
-    </script>
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   <script type="importmap">
 {
   "imports": {
@@ -29,9 +26,9 @@
   }
 }
 </script>
-<!-- <link rel="stylesheet" href="/index.css"> -->
+<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
+  <body class="bg-slate-900">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

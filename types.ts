@@ -5,8 +5,12 @@ export interface Analogy {
   analogy: string;
   url: string;
   category: string;
+  averageRating: number;
+  totalRatings: number;
+  userRating?: number;
 }
 
+// FIX: Add DiscussionTopic and DiscussionPost types for the DiscussionForum page.
 export interface DiscussionPost {
     id: number;
     author: string;
@@ -19,6 +23,7 @@ export interface DiscussionTopic {
     title: string;
     posts: DiscussionPost[];
 }
+
 
 // FIX: Add GroundedSource and ChatMessage types for the ChatPage.
 export interface GroundedSource {
@@ -41,7 +46,7 @@ declare global {
         openSelectKey: () => Promise<void>;
     }
     interface Window {
-        // FIX: Added 'readonly' modifier to resolve "All declarations of 'aistudio' must have identical modifiers" error.
+        // FIX: Added `readonly` modifier to resolve 'All declarations of 'aistudio' must have identical modifiers' error.
         readonly aistudio: AIStudio;
     }
 }

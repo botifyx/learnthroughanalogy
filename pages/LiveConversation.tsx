@@ -137,9 +137,9 @@ export default function LiveConversation() {
   }, [stopConversation]);
 
   return (
-    <div className="bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-lg shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 text-center">
+    <div className="bg-slate-800 p-6 md:p-8 rounded-lg shadow-xl ring-1 ring-slate-700 text-center">
         <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text text-transparent">Talk to Leny</h1>
-        <p className="text-slate-500 dark:text-slate-400 mb-6">Have a real-time voice conversation with Leny, our friendly AI assistant.</p>
+        <p className="text-slate-400 mb-6">Have a real-time voice conversation with Leny, our friendly AI assistant.</p>
         
         <div className="flex justify-center items-center my-8">
              <button
@@ -153,14 +153,14 @@ export default function LiveConversation() {
             </button>
         </div>
 
-        {error && <p className="text-red-500 dark:text-red-400 mb-4">{error}</p>}
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         
-        <div className="w-full max-w-2xl mx-auto h-64 bg-slate-100 dark:bg-slate-900/50 rounded-lg p-4 overflow-y-auto text-left space-y-2 ring-1 ring-slate-200 dark:ring-slate-700">
-            {transcriptions.length === 0 && !isTalking && <p className="text-slate-400 dark:text-slate-500 text-center pt-20">Press the button to start talking...</p>}
+        <div className="w-full max-w-2xl mx-auto h-64 bg-slate-900 rounded-lg p-4 overflow-y-auto text-left space-y-2 ring-1 ring-slate-700">
+            {transcriptions.length === 0 && !isTalking && <p className="text-slate-500 text-center pt-20">Press the button to start talking...</p>}
             {transcriptions.map((t, i) => (
-                <div key={i} className={`p-2 rounded-md text-sm ${t.role === 'user' ? 'bg-slate-200 dark:bg-slate-700 text-right' : 'bg-violet-100 dark:bg-violet-900/50 text-left'}`}>
-                    <span className={`font-bold ${t.role === 'user' ? 'text-cyan-600 dark:text-cyan-400' : 'text-violet-600 dark:text-violet-400'}`}>{t.role === 'user' ? 'You' : 'Leny'}: </span>
-                    <span className="text-slate-700 dark:text-slate-300">{t.text}</span>
+                <div key={i} className={`p-2 rounded-md text-sm ${t.role === 'user' ? 'bg-slate-700 text-right' : 'bg-violet-900/50 text-left'}`}>
+                    <span className={`font-bold ${t.role === 'user' ? 'text-cyan-600' : 'text-violet-400'}`}>{t.role === 'user' ? 'You' : 'Leny'}: </span>
+                    <span className="text-slate-200">{t.text}</span>
                 </div>
             ))}
         </div>
