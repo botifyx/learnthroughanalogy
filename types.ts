@@ -10,7 +10,6 @@ export interface Analogy {
   userRating?: number;
 }
 
-// FIX: Add DiscussionTopic and DiscussionPost types for the DiscussionForum page.
 export interface DiscussionPost {
     id: number;
     author: string;
@@ -25,7 +24,6 @@ export interface DiscussionTopic {
 }
 
 
-// FIX: Add GroundedSource and ChatMessage types for the ChatPage.
 export interface GroundedSource {
     title?: string;
     uri?: string;
@@ -38,15 +36,20 @@ export interface ChatMessage {
     sources?: GroundedSource[];
 }
 
-// FIX: Centralized the type definition for 'window.aistudio' by declaring
-// the AIStudio interface within the global scope to resolve type conflicts.
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    avatarUrl?: string;
+    provider: 'google' | 'facebook';
+}
+
 declare global {
     interface AIStudio {
         hasSelectedApiKey: () => Promise<boolean>;
         openSelectKey: () => Promise<void>;
     }
     interface Window {
-        // FIX: Added `readonly` modifier to resolve 'All declarations of 'aistudio' must have identical modifiers' error.
-        readonly aistudio: AIStudio;
+        aistudio?: AIStudio;
     }
 }
